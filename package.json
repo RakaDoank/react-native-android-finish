@@ -123,7 +123,7 @@
 			"before:git:release": "echo Pushing ${name} to Git...",
 			"after:git:release": "echo Successfully pushed ${name} to Git",
 			"before:github:release": "echo Making a Github release...",
-			"after:github:release": "Successfully created a Github release",
+			"after:github:release": "echo Successfully created a Github release",
 			"after:release": "echo Successfully released ${name} v${version} to ${repo.repository}"
 		}
 	}
