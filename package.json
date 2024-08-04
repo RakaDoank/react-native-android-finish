@@ -17,7 +17,7 @@
 		"code-check": "npx tsc && npm run lint",
 		"lint": "eslint .",
 		"prepare": "bob build",
-		"release": "dotenv release-it"
+		"release": "dotenv release-it --no-increment --config .release-it.ts"
 	},
 	"source": "./src/index.ts",
 	"main": "./lib/commonjs/index.js",
