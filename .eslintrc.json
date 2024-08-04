@@ -1,0 +1,119 @@
+{
+	"root": true,
+
+	"extends": [
+		// Eslint Plugin Import
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:import/typescript",
+		"plugin:@typescript-eslint/recommended"
+	],
+
+	"parser": "@typescript-eslint/parser",
+
+	"plugins": [
+		"@stylistic",
+		"@typescript-eslint"
+	],
+
+	"ignorePatterns": [
+		"lib/*"
+	],
+
+	"rules": {
+		// https://eslint.org/docs/latest/rules/consistent-return
+		"consistent-return": "error",
+
+		// https://eslint.org/docs/latest/rules/no-unused-vars
+		"no-unused-vars": "off",
+
+		// https://eslint.org/docs/latest/rules/no-shadow-restricted-names
+		"no-shadow-restricted-names": "error",	
+
+		// https://eslint.org/docs/latest/rules/prefer-const
+		"prefer-const": "error",
+
+		// https://eslint.style/rules/default/comma-dangle
+		"@stylistic/comma-dangle": [
+			"warn",
+			"always-multiline"
+		],
+		
+		// https://eslint.org/docs/rules/comma-spacing
+		"@stylistic/comma-spacing": ["error", {
+			"before": false,
+			"after": true
+		}],
+
+		// https://eslint.style/rules/default/indent
+		"@stylistic/indent": ["warn", "tab"],
+
+		// https://eslint.style/rules/default/keyword-spacing
+		"@stylistic/keyword-spacing": [
+			"error",
+			{
+				// override default from @react-native
+				"overrides": {
+					"if": {
+						"after": false
+					},
+					"catch": {
+						"after": true
+					}
+				}
+			}
+		],
+
+		// https://eslint.style/rules/default/space-before-blocks
+		"@stylistic/space-before-blocks": "warn",
+
+		// https://eslint.style/rules/default/no-trailing-spaces
+		"@stylistic/no-trailing-spaces": [
+			"warn",
+			{
+				"ignoreComments": true
+			}
+		],
+
+		// https://typescript-eslint.io/rules/no-empty-interface
+		"@typescript-eslint/no-empty-interface": "off",
+		// https://typescript-eslint.io/rules/no-explicity-any
+		"@typescript-eslint/no-explicit-any": "off",
+
+		// https://typescript-eslint.io/rules/no-shadow
+		"@typescript-eslint/no-shadow": "error",
+
+		// https://typescript-eslint.io/rules/no-shadow
+		"@typescript-eslint/no-unused-vars": [
+			// Make sure no-unused-vars (Eslint natively) is off
+			"error",
+			{
+				"argsIgnorePattern": "^_"
+				// "destructuredArrayIgnorePattern": "^_"
+			}
+		]
+	},
+
+	"overrides": [
+		{
+			"files": ["*.js"],
+			"plugins": [],
+			"rules": {
+				"no-undef": "off",
+				"no-unused-vars": "error",
+				"@typescript-eslint/no-require-imports": "off",
+				"@typescript-eslint/no-unused-vars": "off"
+			}
+		}
+	],
+
+	"settings": {
+		"import/ignore": [
+			"react-native"
+		],
+		"import/resolver": {
+			"node": true,
+			"typescript": true
+		}
+	}
+}

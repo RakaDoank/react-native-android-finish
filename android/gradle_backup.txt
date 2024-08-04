@@ -1,0 +1,123 @@
+
+buildscript {
+	if (project == rootProject) {
+		// Buildscript is evaluated before everything else so we can't use getExtOrDefault
+		def kotlin_version = rootProject.ext.has("kotlinVersion") ? rootProject.ext.get("kotlinVersion") : project.properties["Module_kotlinVersion"]
+	
+        repositories {
+            mavenCentral()
+            google()
+        }
+
+        dependencies {
+            classpath("com.android.tools.build:gradle:7.4.2")
+			classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        }
+    }
+}
+
+// def getExtOrDefault(name) {
+// 	return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties["Module_" + name]
+// }
+
+// def getExtOrIntegerDefault(name) {
+// 	return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties["Module_" + name]).toInteger()
+// }
+
+def isNewArchitectureEnabled() {
+    // To opt-in for the New Architecture, you can either:
+    // - Set `newArchEnabled` to true inside the `gradle.properties` file
+    // - Invoke gradle with `-newArchEnabled=true`
+    // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
+    return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+}
+
+if (isNewArchitectureEnabled()) {
+    apply plugin: "com.facebook.react"
+}
+
+apply plugin: "com.android.library"
+apply plugin: "org.jetbrains.kotlin.android"
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+def kotlin_version = getExtOrDefault("kotlinVersion")
+
+android {
+	compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
+	def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION
+    if (agpVersion.tokenize('.')[0].toInteger() >= 7) {
+        namespace "com.audira.lib.reactnative.androidfinish"
+    }
+    if (agpVersion.tokenize('.')[0].toInteger() >= 8) {
+        buildFeatures {
+            buildConfig = true
+        }
+    }
+
+	if (rootProject.hasProperty("ndkPath")) {
+		ndkPath rootProject.ext.ndkPath
+	}
+	if (rootProject.hasProperty("ndkVersion")) {
+		ndkVersion rootProject.ext.ndkVersion
+	}
+
+	defaultConfig {
+		minSdkVersion safeExtGet('minSdkVersion', project.properties["Module_minSdkVersion"])
+		targetSdkVersion safeExtGet('targetSdkVersion', project.properties["Module_targetSdkVersion"])
+		buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+
+		consumerProguardFiles 'proguard-rules.pro'
+	}
+
+	lintOptions {
+        abortOnError false
+    }
+
+	sourceSets {
+		main {
+			if (isNewArchitectureEnabled()) {
+				java.srcDirs += [
+					"src/archnew",
+					// This is needed to build Kotlin project with NewArch enabled
+					"${project.buildDir}/generated/source/codegen/java"
+				]
+			} else {
+				java.srcDirs += ['src/archold']
+			}
+		}
+		java {
+            if (!isNewArchitectureEnabled()) {
+                srcDirs += [
+                    "src/paper/java",
+					// This is needed to build Kotlin project with NewArch enabled
+					"${project.buildDir}/generated/source/codegen/java"
+                ]
+            }
+        }
+	}
+}
+
+repositories {
+	maven {
+		// All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+		url "$projectDir/../node_modules/react-native/android"
+	}
+	mavenCentral()
+	google()
+}
+
+dependencies {
+	implementation "com.facebook.react:react-native:+"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+if (isNewArchitectureEnabled()) {
+	react {
+		jsRootDir = file("../src/")
+		libraryName = "ReactNativeAndroidFinish"
+		codegenJavaPackageName = "com.audira.lib.reactnative.androidfinish"
+	}
+}
