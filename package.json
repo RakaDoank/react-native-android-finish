@@ -4,6 +4,8 @@
 	"description": "Gracefully finish the React Native app",
 	"author": "RakaDoank <rakaaudira@gmail.com> (https://github.com/RakaDoank)",
 	"license": "MIT",
+	"homepage": "https://github.com/RakaDoank/react-native-android-finish",
+	"repository": "https://github.com/RakaDoank/react-native-android-finish",
 	"keywords": [
 		"react-native",
 		"react-native-android-finish",
