@@ -39,7 +39,7 @@
 			"always-multiline"
 		],
 		
-		// https://eslint.org/docs/rules/comma-spacing
+		// https://eslint.style/docs/rules/comma-spacing
 		"@stylistic/comma-spacing": ["error", {
 			"before": false,
 			"after": true
