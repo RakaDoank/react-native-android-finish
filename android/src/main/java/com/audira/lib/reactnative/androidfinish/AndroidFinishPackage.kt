@@ -7,12 +7,17 @@ import com.facebook.react.module.model.ReactModuleInfo
 import com.facebook.react.module.model.ReactModuleInfoProvider
 
 class AndroidFinishPackage : TurboReactPackage() {
-	override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? =
-		if(name == AndroidFinishInterface.NAME) {
+
+	override fun getModule(
+		name: String,
+		reactContext: ReactApplicationContext,
+	): NativeModule? {
+		return if(name == AndroidFinishInterface.NAME) {
 			AndroidFinish(reactContext)
 		} else {
 			null
 		}
+	}
 
 	override fun getReactModuleInfoProvider(): ReactModuleInfoProvider {
 		val isTurboModule: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
@@ -30,4 +35,5 @@ class AndroidFinishPackage : TurboReactPackage() {
 			)
 		}
 	}
+
 }
