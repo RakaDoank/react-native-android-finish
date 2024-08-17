@@ -21,6 +21,11 @@ class AndroidFinish (
 	}
 
 	@ReactMethod
+	override fun finishAfterTransition() {
+		reactContext.currentActivity?.finishAfterTransition()
+	}
+
+	@ReactMethod
 	override fun finishAndRemoveTask() {
 		reactContext.currentActivity?.finishAndRemoveTask()
 	}

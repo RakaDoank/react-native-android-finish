@@ -46,6 +46,19 @@ export function finishAffinity() {
 }
 
 /**
+ * Mostly, RN apps only need the {@link finish()}  
+ * Reverses the Activity Scene entry Transition and triggers the calling Activity to reverse its exit Transition.  
+ * When the exit Transition completes, {@link finish()} is called.  
+ * If no entry Transition was used, {@link finish()} is called immediately and the Activity exit Transition is run.  
+ * Required: Android API level >= 21  
+ *   
+ * Reference: https://developer.android.com/reference/android/app/Activity#finishAfterTransition()
+ */
+export function finishAfterTransition() {
+	Module.finishAfterTransition()
+}
+
+/**
  * Close RN activity along with the Recent Screens/Tasks  
  * If you don't know what the Recent Screens/Tasks is: https://developer.android.com/guide/components/activities/recents  
  * Required: Android API level >= 21  
