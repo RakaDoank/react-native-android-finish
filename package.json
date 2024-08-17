@@ -1,6 +1,6 @@
 {
 	"name": "react-native-android-finish",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "Gracefully finish the React Native app",
 	"author": "RakaDoank <rakaaudira@gmail.com> (https://github.com/RakaDoank)",
 	"license": "MIT",
