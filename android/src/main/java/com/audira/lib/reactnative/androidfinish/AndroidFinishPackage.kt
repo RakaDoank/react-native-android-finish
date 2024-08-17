@@ -20,17 +20,16 @@ class AndroidFinishPackage : TurboReactPackage() {
 	}
 
 	override fun getReactModuleInfoProvider(): ReactModuleInfoProvider {
-		val isTurboModule: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
 		return ReactModuleInfoProvider {
 			mapOf(
 				AndroidFinishInterface.NAME to ReactModuleInfo(
-					AndroidFinishInterface.NAME,
-					AndroidFinishInterface.NAME,
-					false, // canOverrideExistingModule
-					false, // needsEagerInit
-					true, // hasConstants
-					false, // isCxxModule
-					isTurboModule, // isTurboModule
+					name = AndroidFinishInterface.NAME,
+					className = AndroidFinishInterface.NAME,
+					canOverrideExistingModule = false,
+					needsEagerInit = false,
+					hasConstants = true,
+					isCxxModule = false,
+					isTurboModule = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED,
 				)
 			)
 		}
