@@ -1,3 +1,4 @@
+import com.android.Version
 
 buildscript {
 	// Buildscript is evaluated before everything else so we can't use getExtOrDefault
@@ -41,7 +42,7 @@ def kotlin_version = getExtOrDefault("kotlinVersion")
 def javaPackageName = "com.audira.lib.reactnative.androidfinish"
 
 android {
-	def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION
+	def agpVersion = Version.ANDROID_GRADLE_PLUGIN_VERSION
 	if (agpVersion.tokenize('.')[0].toInteger() >= 7) {
 		namespace javaPackageName
 	}
