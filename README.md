@@ -53,12 +53,12 @@ import {
     Button,
 } from 'react-native'
 import {
-    finishAffinity,
+    finishAfterTransition,
 } from 'react-native-android-finish'
 
 export default function App(): React.JSX.Element {
     return (
-        <Button title="Close App" onPress={ finishAffinity }/>
+        <Button title="Close App" onPress={ finishAfterTransition }/>
     )
 }
 ```
