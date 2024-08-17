@@ -37,7 +37,7 @@ export function finish() {
 
 /**
  * Similar to the `finish()`, but it closes all the activities present.  
- * Likely, most of RN apps only need the `finish()`  
+ * Mostly, RN apps only need the `finish()`  
  *   
  * Reference: https://developer.android.com/reference/android/app/Activity#finishActivity(int)
  */
@@ -63,7 +63,7 @@ export function finishAfterTransition() {
  * If you don't know what the Recent Screens/Tasks is: https://developer.android.com/guide/components/activities/recents  
  * Required: Android API level >= 21  
  *   
- * Reference: https://developer.android.com/reference/android/app/Activity#finishAndRemoveTask()  
+ * Reference: https://developer.android.com/reference/android/app/Activity#finishAndRemoveTask()
  */
 export function finishAndRemoveTask() {
 	Module.finishAndRemoveTask()
