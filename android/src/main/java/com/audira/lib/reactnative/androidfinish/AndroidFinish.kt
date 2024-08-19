@@ -6,9 +6,7 @@ import com.facebook.react.bridge.ReactMethod
 
 class AndroidFinish (
 	private val reactContext: ReactApplicationContext,
-) : AndroidFinishSpec(reactContext), AndroidFinishInterface {
-
-	override fun getName(): String = AndroidFinishInterface.NAME
+) : AndroidFinishSpec(reactContext) {
 
 	@ReactMethod
 	override fun finish() {

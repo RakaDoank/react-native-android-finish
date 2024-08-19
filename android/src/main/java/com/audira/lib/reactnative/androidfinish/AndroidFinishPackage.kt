@@ -12,7 +12,7 @@ class AndroidFinishPackage : TurboReactPackage() {
 		name: String,
 		reactContext: ReactApplicationContext,
 	): NativeModule? {
-		return if(name == AndroidFinishInterface.NAME) {
+		return if(name == AndroidFinishSpec.NAME) {
 			AndroidFinish(reactContext)
 		} else {
 			null
@@ -22,9 +22,9 @@ class AndroidFinishPackage : TurboReactPackage() {
 	override fun getReactModuleInfoProvider(): ReactModuleInfoProvider {
 		return ReactModuleInfoProvider {
 			mapOf(
-				AndroidFinishInterface.NAME to ReactModuleInfo(
-					name = AndroidFinishInterface.NAME,
-					className = AndroidFinishInterface.NAME,
+				AndroidFinishSpec.NAME to ReactModuleInfo(
+					name = AndroidFinishSpec.NAME,
+					className = AndroidFinishSpec.NAME,
 					canOverrideExistingModule = false,
 					needsEagerInit = false,
 					hasConstants = true,
