@@ -23,13 +23,13 @@ class AndroidFinishPackage : TurboReactPackage() {
 		return ReactModuleInfoProvider {
 			mapOf(
 				AndroidFinishSpec.NAME to ReactModuleInfo(
-					name = AndroidFinishSpec.NAME,
-					className = AndroidFinishSpec.NAME,
-					canOverrideExistingModule = false,
-					needsEagerInit = false,
-					hasConstants = true,
-					isCxxModule = false,
-					isTurboModule = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED,
+					AndroidFinishSpec.NAME,
+					AndroidFinishSpec.NAME,
+					false,
+					false,
+					true,
+					false,
+					BuildConfig.IS_NEW_ARCHITECTURE_ENABLED,
 				)
 			)
 		}
