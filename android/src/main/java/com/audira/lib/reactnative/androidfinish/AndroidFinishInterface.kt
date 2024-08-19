@@ -8,6 +8,7 @@ interface AndroidFinishInterface {
 
 	fun finish()
 	fun finishAffinity()
+	fun finishAfterTransition()
 	fun finishAndRemoveTask()
 	fun unstable_restart()
 
