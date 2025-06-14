@@ -47,6 +47,5 @@ jobs:
     - name: Release to npm registry
       env:
         NPM_CONFIG_PROVENANCE: true
-      if: ${{ secrets.NPM_TOKEN != '' }}
       run: |
         pnpm publish --filter react-native-android-finish --access public --no-git-checks
