@@ -17,12 +17,12 @@ It is better to finish the app with its transition/animation rather than force k
 ## Installation
 npm
 ```
-npm install react-native-ping-android
+npm install react-native-android-finish
 ```
 
 or with yarn
 ```
-yarn add react-native-ping-android
+yarn add react-native-android-finish
 ```
 🚀 This library is supported in New Architecture (Turbo Modules)
 
