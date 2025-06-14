@@ -1,0 +1,4 @@
+packages:
+  - 'builder-bob'
+  - 'example'
+  - 'package'

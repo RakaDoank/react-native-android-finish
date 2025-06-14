@@ -1,0 +1,10 @@
+{
+	"extends": "@react-native/typescript-config/tsconfig.json",
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./src/*"],
+			"react-native-android-finish": ["../package/src/index"]
+		},
+		"verbatimModuleSyntax": true
+	}
+}

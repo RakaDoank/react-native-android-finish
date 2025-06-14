@@ -1,0 +1,25 @@
+{
+	"display": "react-native-ping-android",
+	"extends": "@react-native/typescript-config/tsconfig.json",
+	"compilerOptions": {
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitReturns": true,
+		"noImplicitUseStrict": false,
+		"noStrictGenericChecks": false,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"resolveJsonModule": true,
+		"resolvePackageJsonImports": false,
+		"strict": true,
+		"types": [],
+		"verbatimModuleSyntax": true
+	},
+	"include": [
+		"../package/src/**/*"
+	]
+}
