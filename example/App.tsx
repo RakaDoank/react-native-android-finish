@@ -39,27 +39,27 @@ export default function App() {
 		isDarkMode =
 			useColorScheme() === 'dark',
 
-		finishHandler: ButtonProps['onPress'] =
+		onPressFinish: ButtonProps['onPress'] =
 			() => {
 				finish()
 			},
 
-		finishAffinityHandler: ButtonProps['onPress'] =
+		onPressFinishAffinity: ButtonProps['onPress'] =
 			() => {
 				finishAffinity()
 			},
 
-		finishAfterTransitionHandler: ButtonProps['onPress'] =
+		onPressFinishAfterTransition: ButtonProps['onPress'] =
 			() => {
 				finishAfterTransition()
 			},
 
-		finishAndRemoveTaskHandler: ButtonProps['onPress'] =
+		onPressFinishAndRemoveTask: ButtonProps['onPress'] =
 			() => {
 				finishAndRemoveTask()
 			},
 
-		unstableRestartHandler: ButtonProps['onPress'] =
+		onPressUnstableRestart: ButtonProps['onPress'] =
 			() => {
 				unstable_restart()
 			}
@@ -71,7 +71,7 @@ export default function App() {
 			if(!ref.current.backHandlerTimeout) {
 				ref.current.backHandlerTimeout = setTimeout(() => {
 					ref.current.backHandlerCount = 0
-				}, 2500)
+				}, 2500) // set your own interval
 			}
 
 			if(ref.current.backHandlerCount == 1) {
@@ -80,9 +80,11 @@ export default function App() {
 					ToastAndroid.SHORT,
 				)
 			} else if(ref.current.backHandlerCount == 2) {
-				if(ref.current.backHandlerTimeout) {
-					clearTimeout(ref.current.backHandlerTimeout)
-				}
+				/**
+				 * Here it is. 
+				 * The app will be closed if the user press the back button (or back swipe gesture) 
+				 * within 2.5 seconds.
+				 */
 				finish()
 			}
 
@@ -106,23 +108,23 @@ export default function App() {
 			>
 				<Button
 					text="finish()"
-					onPress={ finishHandler }
+					onPress={ onPressFinish }
 				/>
 				<Button
 					text="finishAffinity()"
-					onPress={ finishAffinityHandler }
+					onPress={ onPressFinishAffinity }
 				/>
 				<Button
 					text="finishAfterTransition()"
-					onPress={ finishAfterTransitionHandler }
+					onPress={ onPressFinishAfterTransition }
 				/>
 				<Button
 					text="finishAndRemoveTask()"
-					onPress={ finishAndRemoveTaskHandler }
+					onPress={ onPressFinishAndRemoveTask }
 				/>
 				<Button
 					text="unstable_restart()"
-					onPress={ unstableRestartHandler }
+					onPress={ onPressUnstableRestart }
 				/>
 
 				<Text>
