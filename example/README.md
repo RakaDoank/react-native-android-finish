@@ -19,7 +19,7 @@ After that, run `pnpm install` in the `react-native-android-finish` directory
 
 You will need to run **Metro**, the JavaScript build tool for React Native.
 
-To start the Metro dev server, go the `example` directory, and run the following command from the root of your React Native project:
+To start the Metro dev server, go the `example` directory, and run the following command from the the `example` directory:
 
 ```sh
 # Using npm
@@ -31,7 +31,7 @@ yarn start
 
 ## Step 3: Build and run your app
 
-With Metro running, open a new terminal window/pane from the root of the `example` directory, and use one of the following commands to build and run your Android or iOS app:
+With Metro running, open a new terminal window/pane from the root of the `example` directory, and use one of the following commands to build and run your Android ~~or iOS app~~:
 
 ### Android
 
