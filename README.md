@@ -3,11 +3,30 @@
 A simple module to gracefully finish the React Native android app programatically.  
 It is better to finish the app with its transition/animation rather than force kill the app process.
 
-## Installation
-    npm install react-native-android-finish
-🚀 This library is supported in New Architecture (Turbo Module)
+[Check out the Example app](https://github.com/RakaDoank/react-native-android-finish/tree/main/example) with the [double back pressed to exit](https://github.com/RakaDoank/react-native-android-finish/blob/main/example/App.tsx#L67)
 
-## Usage
+- [Installation](#installation)
+- [APIs](#apis)
+    - [finish()](#--finish)
+    - [finishAffinity()](#--finishAffinity)
+    - [finishAfterTransition()](#--finishAfterTransition)
+    - [finishAndRemoveTask()](#--finishAndRemoveTask)
+    - [unstable_restart()](#--unstable_restart)
+- [About BackHandler API](#about-backhandler-api)
+
+## Installation
+npm
+```
+npm install react-native-ping-android
+```
+
+or with yarn
+```
+yarn add react-native-ping-android
+```
+🚀 This library is supported in New Architecture (Turbo Modules)
+
+## APIs
 ### - finish()
 Close current RN activity
 ```ts
@@ -27,8 +46,7 @@ export default function App(): React.JSX.Element {
 Reference: https://developer.android.com/reference/android/app/Activity#finish()  
 
 ### - finishAffinity()
-Similar to the `finish()`, but it closes all the activities present.  
-Mostly, RN apps only need the `finish()`
+Similar to the `finish()`, but it closes all the activities present
 ```ts
 import {
     Button,
@@ -45,9 +63,8 @@ export default function App(): React.JSX.Element {
 ```
 Reference: https://developer.android.com/reference/android/app/Activity#finishAffinity()  
 
-### - finishAfterTransition() 
-Reverses the Activity Scene entry Transition, triggers the calling Activity to reverse its exit Transition, and calls the `finish()` when the exit Transition completes  
-Mostly, RN apps only need the `finish()` 
+### - finishAfterTransition()
+Reverses the Activity Scene entry Transition, triggers the calling Activity to reverse its exit Transition, and calls the `finish()` when the exit Transition completes
 ```ts
 import {
     Button,
@@ -104,7 +121,7 @@ export default function App(): React.JSX.Element {
 You can see the [AndroidFinish.kt](https://github.com/RakaDoank/react-native-android-finish/blob/main/android/src/main/java/com/audira/lib/reactnative/androidfinish/AndroidFinish.kt)
 
 ### About BackHandler API
-This is not the same as [BackHandler.exitApp()](https://reactnative.dev/docs/backhandler) which simply minimizes the application.
+This library is not the same as [BackHandler.exitApp()](https://reactnative.dev/docs/backhandler) which simply minimizes the application.
 
 ## For iOS
 There is no behaviour on iOS to finish the app like this module in Android. It's their own guideline and should've be done by the user manually by remove the app in their recent apps.
