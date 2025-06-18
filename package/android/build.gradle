@@ -36,7 +36,7 @@ def kotlin_version = getExtOrDefault("kotlinVersion")
 def javaPackageName = "com.audira.lib.reactnative.androidfinish"
 
 android {
-	namespace "${javaPackageName}"
+	namespace "com.audira.lib.reactnative.androidfinish"
 
     if (com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')[0].toInteger() >= 8) {
         buildFeatures {
