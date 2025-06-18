@@ -233,8 +233,8 @@ export default [
 			ecmaVersion: 2020,
 			parserOptions: {
 				project: [
-					'./builder-bob/tsconfig.json',
 					'./example/tsconfig.json',
+					'./package/tsconfig.json',
 				],
 				tsconfigRootDir: import.meta.dirname,
 			},

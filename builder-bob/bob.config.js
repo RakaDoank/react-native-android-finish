@@ -19,7 +19,7 @@ module.exports = {
 		[
 			'typescript',
 			{
-				project: 'tsconfig.json',
+				project: '../package/tsconfig.json',
 				tsc: '../node_modules/typescript/bin/tsc',
 			},
 		],

@@ -20,6 +20,6 @@
 		"verbatimModuleSyntax": true
 	},
 	"include": [
-		"../package/src/**/*"
+		"src/**/*"
 	]
 }
