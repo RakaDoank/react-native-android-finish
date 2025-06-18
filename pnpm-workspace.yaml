@@ -1,4 +1,10 @@
+engineStrict: true
+
+nodeLinker: hoisted
+
 packages:
   - 'builder-bob'
   - 'example'
   - 'package'
+
+strictPeerDependencies: false
