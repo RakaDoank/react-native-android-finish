@@ -33,6 +33,7 @@
 	"files": [
 		"lib",
 		"android",
+		"src/native-module",
 		"!android/build",
 		"!android/gradle",
 		"!android/gradlew",
